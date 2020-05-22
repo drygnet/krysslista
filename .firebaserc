@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "kryss-lista"
+  },
+  "targets": {
+    "kryss-lista": {
+      "hosting": {
+        "prod": [
+          "kryss-lista"
+        ],
+        "dev": [
+          "kryss-lista-dev"
+        ]
+      }
+    }
+  }
+}
