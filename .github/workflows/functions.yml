@@ -29,9 +29,7 @@ jobs:
           ${{ runner.os }}-build-
           ${{ runner.os }}-
 
-    - run: npm install
     - run: cd functions && npm install && cd -
-    - run: npm run build
     - uses: w9jds/firebase-action@master
       with:
         args: deploy --only functions

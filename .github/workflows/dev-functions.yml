@@ -1,12 +1,11 @@
-name: CI-DEV-MAIN
+name: CI-DEV-FUNCTIONS
 
 on:
   push:
     branches:
     - 'feature/**'
-    paths-ignore:
+    paths:
     - 'functions/**'
-    - '.github/**'
 
 jobs:
   firebase-deploy:
@@ -31,10 +30,9 @@ jobs:
           ${{ runner.os }}-build-
           ${{ runner.os }}-
 
-    - run: npm install
-    - run: npm run build
+    - run: cd functions && npm install && cd -
     - uses: w9jds/firebase-action@master
       with:
-        args: deploy --only hosting:dev
+        args: deploy --only functions
       env:
         FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
